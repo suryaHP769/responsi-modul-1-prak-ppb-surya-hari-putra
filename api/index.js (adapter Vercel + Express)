@@ -1,0 +1,5 @@
+const serverless = require('serverless-http');
+const app = require('../src/app');
+
+// Vercel akan memanggil handler ini untuk semua route /api/*
+module.exports = serverless(app);

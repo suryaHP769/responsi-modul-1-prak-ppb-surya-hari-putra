@@ -1,0 +1,21 @@
+-- ENUM status
+create type if not exists shoe_status as enum ('Menunggu', 'Proses', 'Selesai', 'Batal');
+
+-- Tabel items
+create table if not exists public.items (
+  id uuid primary key default gen_random_uuid(),
+  customer_name text not null,
+  shoe_brand text not null,
+  shoe_color text,
+  service_type text not null,
+  status shoe_status not null default 'Menunggu',
+  check_in timestamptz not null default now(),
+  due_date timestamptz,
+  notes text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+-- (opsional) index sederhana
+create index if not exists idx_items_status on public.items (status);
+create index if not exists idx_items_created_at on public.items (created_at desc);

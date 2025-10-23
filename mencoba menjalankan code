@@ -1,0 +1,14 @@
+sepatu-api/
+├─ api/
+│  └─ index.js
+├─ src/
+│  └─ app.js
+├─ supabase/
+│  └─ migrations/
+│     └─ 001_init.sql
+├─ index.local.js
+├─ package.json
+├─ vercel.json
+├─ .env.example
+├─ .gitignore
+└─ README.md
